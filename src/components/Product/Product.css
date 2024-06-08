@@ -1,0 +1,9 @@
+.product{
+    display: flex;
+    border-bottom: 2px solid lightgray;
+    margin-bottom: 5px;
+}
+
+img{
+    margin: 5px;
+}
