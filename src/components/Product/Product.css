@@ -7,3 +7,8 @@
 img{
     margin: 5px;
 }
+
+.product-name{
+    color : blue;
+    font-size: x-large;
+}
