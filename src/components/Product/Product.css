@@ -7,3 +7,25 @@
 img{
     margin: 5px;
 }
+
+.product-name{
+    color : blue;
+    font-size: x-large;
+}
+
+.btn-add-to-cart{
+    background-color: rgb(255, 177, 10);
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    transition: box-shadow 0.3s ease;
+    
+}
+
+.btn-add-to-cart:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

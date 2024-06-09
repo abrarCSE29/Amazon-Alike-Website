@@ -1,8 +1,9 @@
 import React from 'react'
 import './Product.css'
+import { FaCartPlus } from "react-icons/fa6";
 export default function Product(props) {
-    console.log(props.product);
-    const {img,name} = props.product;
+   // console.log(props);
+    const {img,name,seller,price,stock} = props.product;
     return (
         <div className='product'>
             <div>
@@ -10,8 +11,11 @@ export default function Product(props) {
             </div>
             
             <div>
-                <h3>{name}</h3>
-                <p>by : {props.product.seller}</p>
+                <h4 className='product-name'>{name}</h4>
+                <p>by : {seller}</p>
+                <h4>Price : ${price}</h4>
+                <p>Stock : Only {stock} items left</p>
+                <button className='btn-add-to-cart' onClick={() => props.handleAddProduct(props.product) }> <FaCartPlus/>  Add to cart</button>
 
             </div>
 
