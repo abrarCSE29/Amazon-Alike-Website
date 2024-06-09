@@ -6,6 +6,9 @@ export default function Shop() {
 
     const first10 = fakeData.slice(0, 10);
     const [products, setProducts] = useState(first10);
+    const handleAddProduct = (pd) => {
+        console.log(pd);
+    };
     //console.log(products);
     return (
         <div className='shop-container'>
@@ -14,7 +17,10 @@ export default function Shop() {
                 <ul>
                     {
                         products.map((product, index) =>
-                            <Product product={product}/>
+                            <Product
+                                product={product}
+                                handleAddProduct = {handleAddProduct}
+                                />
                         )
                     }
                 </ul>
