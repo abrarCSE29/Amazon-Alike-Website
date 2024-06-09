@@ -1,0 +1,16 @@
+.cart-product{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+
+.cart-product .name{
+    width: 80%;
+}
+
+.cart-product .price{
+    flex-direction: row-reverse;
+    font-weight: bold;
+    font-size: large;
+}
