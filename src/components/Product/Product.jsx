@@ -1,5 +1,6 @@
 import React from 'react'
 import './Product.css'
+import { FaCartPlus } from "react-icons/fa6";
 export default function Product(props) {
     console.log(props.product);
     const {img,name,seller,price,stock} = props.product;
@@ -14,6 +15,7 @@ export default function Product(props) {
                 <p>by : {seller}</p>
                 <h4>Price : ${price}</h4>
                 <p>Stock : Only {stock} items left</p>
+                <button className='btn-add-to-cart'> <FaCartPlus/>  Add to cart</button>
 
             </div>
 
