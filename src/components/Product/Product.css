@@ -2,6 +2,7 @@
     display: flex;
     border-bottom: 2px solid lightgray;
     margin-bottom: 5px;
+    flex-direction: row !important;
 }
 
 img{
@@ -29,3 +30,7 @@ img{
 .btn-add-to-cart:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+ .product img{
+    width: 200px !important;
+    height: 200px !important;
+ }

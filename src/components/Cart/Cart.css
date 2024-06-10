@@ -28,3 +28,8 @@
 .cart-heading{
     text-align: center;
 }
+
+.img-fluid{
+    width: 350px !important;
+    height: 200px !important;
+}
