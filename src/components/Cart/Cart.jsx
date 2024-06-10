@@ -13,10 +13,10 @@ export default function Cart(props) {
         shippingCost = 13;
     }
 
-    const vat = (totalPrice*15.00/100).toFixed(2);
-    
+    const vat = (totalPrice * 15.00 / 100).toFixed(2);
 
-    const grandTotal = (totalPrice+Number.parseFloat(vat)+shippingCost).toFixed(2);
+
+    const grandTotal = (totalPrice + Number.parseFloat(vat) + shippingCost).toFixed(2);
     return (
         <div className='cart'>
             <div className='cart-heading'>
@@ -25,37 +25,43 @@ export default function Cart(props) {
             </div>
             <ol>
                 {
+
                     props.cart.map((product, index) =>
-                        <li key={index}>
-                            <div className='cart-product'>
-                                <div className='name'>
-                                    {product.name}
+                        <div>
+                            <li key={index}>
+                                <div className='cart-product'>
+                                    <div className='name'>
+                                        {product.name}
+                                    </div>
+                                    <div className='price'>
+                                        ${product.price}
+                                    </div>
                                 </div>
-                                <div className='price'>
-                                    ${product.price}
-                                </div>
-                            </div>
-                        </li>)
+                            </li>
+                        </div>
+                    )
                 }
             </ol>
-            <hr />
-            <div className='cart-product'>
-                <div className='name'>Total Price</div>
-                <div className='price'>${totalPrice}</div>
-            </div>
-            <div className='cart-product'>
-                <div className='name'>Shipping Cost</div>
-                <div className='price'>${shippingCost}</div>
-            </div>
-            <div className='cart-product'>
-                <div className='name'>VAT & Tax</div>
-                <div className='price'>${vat}</div>
-            </div>
-            <hr className='hr-line' />
-            <div className='cart-product text-bold'>
-                <div className='name'>Grand Total</div>
-                <div className='price'>${grandTotal}</div>
-            </div>
+
+            {props.cart.length > 0 && (
+                <>
+                    <hr />
+                    <div className='cart-product'>
+                        <div className='name'>Shipping Cost</div>
+                        <div className='price'>${shippingCost.toFixed(2)}</div>
+                    </div>
+                    <div className='cart-product'>
+                        <div className='name'>VAT & Tax</div>
+                        <div className='price'>${vat}</div>
+                    </div>
+                    <hr className='hr-line' />
+                    <div className='cart-product text-bold'>
+                        <div className='name'>Grand Total</div>
+                        <div className='price'>${grandTotal}</div>
+                    </div>
+                </>
+            )}
+
 
         </div>
     )
