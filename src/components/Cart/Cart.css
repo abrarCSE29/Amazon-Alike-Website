@@ -14,3 +14,17 @@
     font-weight: bold;
     font-size: large;
 }
+
+.hr-line{
+    background-color: red;
+    height: 2px;
+    border: none;
+}
+
+.text-bold{
+    font-weight: 800;
+}
+
+.cart-heading{
+    text-align: center;
+}
