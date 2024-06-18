@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
-import fakeData from '../../fakeData'
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { getProducts } from '../../Database/database';
+import { getCartdb, getProducts, setCartdb } from '../../Database/database';
 export default function Shop() {
 
     const first10 = getProducts();
     const [products] = useState(first10);
-    const [cart,setCart] = useState([]);
+    // const DBcart = getCartdb();
+    // console.log(DBcart);
+    const [cart,setCart] = useState(getCartdb);
     
     
     const handleAddProduct = (pd) => {
         const newCart = [...cart,pd];
         setCart(newCart);
-
+        setCartdb(pd);
     };
-    //console.log(products);
     return (
         <div className='shop-container'>
             <div className="product-container">
@@ -27,6 +27,7 @@ export default function Shop() {
                             <Product
                                 product={product}
                                 handleAddProduct = {handleAddProduct}
+                                key ={index}
                             />
                         )
                     }
