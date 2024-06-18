@@ -1,8 +1,9 @@
 import fakeData from "../fakeData";
 
 const setProducts = () =>{
-    const first10 = fakeData.slice(0, 10);
-    localStorage.setItem("products", JSON.stringify(first10));
+    const first10 = fakeData.slice(0, 30);
+    localStorage.getItem('products')? console.log() :localStorage.setItem("products", JSON.stringify(first10));
+    
 };
 
 const getProducts = () =>{
@@ -10,11 +11,18 @@ const getProducts = () =>{
     return JSON.parse(products);
 };
 
-const getCart = () =>{
-    const cart = localStorage.getItem("cart")?JSON.parse(cart) : [];
-    return cart
+const getCartdb = () =>{
+    const cartdb = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")) : [];
+    console.log('thsi is cart db' ,cartdb);
+    return cartdb;
+}
+
+const setCartdb = (product) =>{
+    const existingCart = getCartdb();
+    existingCart.push(product);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    console.log("Cart products" , existingCart);
 }
 
 
-
-export {setProducts,getProducts,getCart};
+export {setProducts,getProducts,getCartdb,setCartdb};

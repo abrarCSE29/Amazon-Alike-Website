@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
-import { setProducts } from './Database/database';
+import { getCartdb, setProducts } from './Database/database';
 
 function App() {
   setProducts();
+  getCartdb();
   return (
     <div className="App">
       <Header/>
