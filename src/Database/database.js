@@ -13,7 +13,7 @@ const getProducts = () =>{
 
 const getCartdb = () =>{
     const cartdb = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")) : [];
-    console.log('thsi is cart db' ,cartdb);
+    //console.log('thsi is cart db' ,cartdb);
     return cartdb;
 }
 

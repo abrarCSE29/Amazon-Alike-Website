@@ -1,7 +1,11 @@
 import React from 'react'
-import "./Cart.css"
-export default function Cart(props) {
-    const totalPrice = props.cart.reduce((total, prd) => total + prd.price, 0);
+import "./CartReview.css"
+import { getCartdb } from '../../Database/database';
+export default function CartReview() {
+
+    const cart = getCartdb();
+
+    const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
     let shippingCost = 0;
     if (totalPrice > 35) {
         //shippingCost = 13;
@@ -20,12 +24,12 @@ export default function Cart(props) {
     return (
         <div className='cart'>
             <div className='cart-heading'>
-                <h2>Order Summary</h2>
-                <p className='text-bold'>Items Ordered : {props.cart.length}</p>
+                <h2>This is review cart</h2>
+                <p className='text-bold'>Items Ordered : {cart.length}</p>
             </div>
             <ol>
                 {
-                    props.cart.map((product, index) =>
+                    cart.map((product, index) =>
                         <div key={index}>
                             <li key={index}>
                                 <div className='cart-product'>
@@ -42,7 +46,7 @@ export default function Cart(props) {
                 }
             </ol>
 
-            {props.cart.length > 0 && (
+            {cart.length > 0 && (
                 <>
                     <hr />
                     <div className='cart-product'>
