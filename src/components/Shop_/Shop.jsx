@@ -13,14 +13,11 @@ export default function Shop() {
     
     
     const handleAddProduct = (pd) => {
-        const newCart = [...cart,pd];
-        setCart(newCart);
         setCartdb(pd);
     };
     return (
         <div className='shop-container'>
             <div className="product-container">
-                <h3>This is product container</h3>
                 <ul>
                     {
                         products.map((product, index) =>
