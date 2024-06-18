@@ -3,9 +3,10 @@ import fakeData from '../../fakeData'
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
+import { getProducts } from '../../Database/database';
 export default function Shop() {
 
-    const first10 = fakeData.slice(0, 10);
+    const first10 = getProducts();
     const [products] = useState(first10);
     const [cart,setCart] = useState([]);
     
@@ -15,8 +16,6 @@ export default function Shop() {
         setCart(newCart);
 
     };
-    
-
     //console.log(products);
     return (
         <div className='shop-container'>
