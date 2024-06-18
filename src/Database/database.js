@@ -10,6 +10,11 @@ const getProducts = () =>{
     return JSON.parse(products);
 };
 
+const getCart = () =>{
+    const cart = localStorage.getItem("cart")?JSON.parse(cart) : [];
+    return cart
+}
 
 
-export {setProducts,getProducts};
+
+export {setProducts,getProducts,getCart};
