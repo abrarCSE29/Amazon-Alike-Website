@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CartReview.css"
-import { getCartdb } from '../../Database/database';
+import { getCartdb, removeFromCartdb } from '../../Database/database';
 export default function CartReview() {
 
-    const cart = getCartdb();
+    const [cart,setCart]=useState([]);
+
+    useEffect(()=>{
+        setCart(getCartdb);
+    },[]);
+
+    const handleRemoveFromCart = (product) => {
+        removeFromCartdb(product);
+        setCart(getCartdb);
+    }
+    
+
+
 
     const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
     let shippingCost = 0;
@@ -41,6 +53,7 @@ export default function CartReview() {
                                     </div>
                                 </div>
                             </li>
+                            <button className='del-button' onClick={handleRemoveFromCart}>Delete</button>
                         </div>
                     )
                 }

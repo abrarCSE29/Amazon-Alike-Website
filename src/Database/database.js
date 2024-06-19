@@ -24,5 +24,11 @@ const setCartdb = (product) =>{
     console.log("Cart products" , existingCart);
 }
 
+const removeFromCartdb = (product) =>{
+    const existingCart = getCartdb();
+    const index = existingCart.indexOf(product);
+    existingCart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+}
 
-export {setProducts,getProducts,getCartdb,setCartdb};
+export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb};

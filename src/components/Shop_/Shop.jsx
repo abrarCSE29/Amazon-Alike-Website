@@ -9,23 +9,29 @@ export default function Shop() {
     const [products] = useState(first10);
     // const DBcart = getCartdb();
     // console.log(DBcart);
-    const [cart,setCart] = useState(getCartdb);
-    
-    
+    const [cart, setCart] = useState(getCartdb);
+
+
     const handleAddProduct = (pd) => {
+        const newCart = [...cart, pd];
+        setCart(newCart);
         setCartdb(pd);
     };
+
     return (
         <div className='shop-container'>
             <div className="product-container">
                 <ul>
                     {
                         products.map((product, index) =>
-                            <Product
-                                product={product}
-                                handleAddProduct = {handleAddProduct}
-                                key ={index}
-                            />
+                            <>
+                                <Product
+                                    product={product}
+                                    handleAddProduct={handleAddProduct}
+                                    key={index}
+                                />
+                            </>
+
                         )
                     }
                 </ul>
