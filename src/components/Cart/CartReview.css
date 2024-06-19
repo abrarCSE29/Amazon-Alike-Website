@@ -1,5 +1,14 @@
 .cart{
     margin-left: 2%;
     margin-right: 2%;
+    font-size: large;
     
+}
+
+.del-button{
+    color: white;
+    background: red;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-size: large;
 }

@@ -1,11 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./CartReview.css"
-import { getCartdb } from '../../Database/database';
+import { getCartdb, removeFromCartdb } from '../../Database/database';
 export default function CartReview() {
 
-    const cart = getCartdb();
+    const [cart,setCart]=useState([]);
 
-    const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
+    useEffect(()=>{
+        setCart(getCartdb);
+    },[]);
+
+    const handleRemoveFromCart = (product) => {
+        removeFromCartdb(product);
+        setCart(getCartdb);
+    }
+    
+
+
+
+    // const totalPrice = cart.reduce((total, prd) => total + prd.price*prd.quantity, 0);
+
+    let totalPrice = 0;
+
+    for ( let x in cart){
+        totalPrice += cart[x].price*cart[x].quantity;
+    };
+    //console.log("total price",totalPrice);
+
     let shippingCost = 0;
     if (totalPrice > 35) {
         //shippingCost = 13;
@@ -36,11 +56,15 @@ export default function CartReview() {
                                     <div className='name'>
                                         {product.name}
                                     </div>
+                                    <div className='name'>
+                                        <strong>Quantity : {product.quantity}</strong>
+                                    </div>
                                     <div className='price'>
-                                        ${product.price}
+                                        ${product.price * product.quantity}
                                     </div>
                                 </div>
                             </li>
+                            <button className='del-button' onClick={handleRemoveFromCart}>Delete</button>
                         </div>
                     )
                 }
