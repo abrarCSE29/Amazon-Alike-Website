@@ -19,7 +19,17 @@ const getCartdb = () =>{
 
 const setCartdb = (product) =>{
     const existingCart = getCartdb();
-    existingCart.push(product);
+    if(existingCart.find(pd => pd.key === product.key)){
+        const index = existingCart.findIndex(pd => pd.key === product.key);
+        existingCart[index].quantity = existingCart[index].quantity + 1;
+        console.log(existingCart[index].quantity);
+    }
+    else{
+        product['quantity']=1;
+        console.log(product.quantity);
+        existingCart.push(product);
+    }
+    
     localStorage.setItem("cart", JSON.stringify(existingCart));
     console.log("Cart products" , existingCart);
 }

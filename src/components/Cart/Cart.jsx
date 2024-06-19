@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Cart.css"
 export default function Cart(props) {
-    const totalPrice = props.cart.reduce((total, prd) => total + prd.price, 0);
+    const totalPrice = props.cart.reduce((total, prd) => total + prd.price*prd.quantity, 0);
     let shippingCost = 0;
     if (totalPrice > 35) {
         //shippingCost = 13;
@@ -31,6 +31,9 @@ export default function Cart(props) {
                                 <div className='cart-product'>
                                     <div className='name'>
                                         {product.name}
+                                    </div>
+                                    <div className='name'>
+                                        {product.quantity}
                                     </div>
                                     <div className='price'>
                                         ${product.price}

@@ -17,7 +17,15 @@ export default function CartReview() {
 
 
 
-    const totalPrice = cart.reduce((total, prd) => total + prd.price, 0);
+    // const totalPrice = cart.reduce((total, prd) => total + prd.price*prd.quantity, 0);
+
+    let totalPrice = 0;
+
+    for ( let x in cart){
+        totalPrice += cart[x].price*cart[x].quantity;
+    };
+    //console.log("total price",totalPrice);
+
     let shippingCost = 0;
     if (totalPrice > 35) {
         //shippingCost = 13;
@@ -48,8 +56,11 @@ export default function CartReview() {
                                     <div className='name'>
                                         {product.name}
                                     </div>
+                                    <div className='name'>
+                                        <strong>Quantity : {product.quantity}</strong>
+                                    </div>
                                     <div className='price'>
-                                        ${product.price}
+                                        ${product.price * product.quantity}
                                     </div>
                                 </div>
                             </li>

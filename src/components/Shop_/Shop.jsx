@@ -13,9 +13,8 @@ export default function Shop() {
 
 
     const handleAddProduct = (pd) => {
-        const newCart = [...cart, pd];
-        setCart(newCart);
         setCartdb(pd);
+        setCart(getCartdb);
     };
 
     return (
