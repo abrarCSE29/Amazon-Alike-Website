@@ -27,15 +27,16 @@ export default function CartReview() {
     //console.log("total price",totalPrice);
 
     let shippingCost = 0;
-    if (totalPrice > 35) {
-        //shippingCost = 13;
+    if (totalPrice > 60) {
+        shippingCost = 20;
     }
-    else if (totalPrice > 15) {
+    else if (totalPrice > 40) {
         shippingCost = 5;
     }
     else if (totalPrice > 0) {
-        shippingCost = 13;
+        shippingCost = 3;
     }
+
 
     const vat = (totalPrice * 15.00 / 100).toFixed(2);
 
