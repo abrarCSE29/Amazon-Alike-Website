@@ -41,4 +41,8 @@ const removeFromCartdb = (product) =>{
     localStorage.setItem("cart", JSON.stringify(existingCart));
 }
 
-export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb};
+const removeCart = () => {
+    localStorage.removeItem("cart");
+}
+
+export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart};
