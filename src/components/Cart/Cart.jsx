@@ -61,10 +61,11 @@ export default function Cart(props) {
                         <div className='name'>Grand Total</div>
                         <div className='price'>${grandTotal}</div>
                     </div>
+                    {props.children}
                 </>
             )}
 
-
+           
         </div>
     )
 }

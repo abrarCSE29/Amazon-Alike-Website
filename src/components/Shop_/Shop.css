@@ -11,4 +11,22 @@
 
 .cart-container{
     width: 30%;
+    
+}
+
+.cart-container .btn-placeorder{
+    text-align: center;
+}
+
+.btn-placeorder{
+    background-color: rgb(255, 177, 10);
+    border: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    transition: box-shadow 0.3s ease;
+    
 }
