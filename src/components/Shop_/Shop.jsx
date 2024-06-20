@@ -41,7 +41,7 @@ export default function Shop() {
                 <Cart cart={cart}>
                     <Link to='/review'>
                     <div style={{textAlign: 'center'}}>
-                        <button className='btn-placeorder'>Place Order</button>
+                        <button className='btn-placeorder'>Review Order</button>
                     </div>
                       
                     </Link>
