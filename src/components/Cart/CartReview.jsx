@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import "./CartReview.css"
 import { getCartdb, removeFromCartdb } from '../../Database/database';
+import { Link } from 'react-router-dom';
 export default function CartReview() {
 
-    const [cart,setCart]=useState([]);
+    const [cart, setCart] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         setCart(getCartdb);
-    },[]);
+    }, []);
 
     const handleRemoveFromCart = (product) => {
         removeFromCartdb(product);
         setCart(getCartdb);
     }
-    
+
+    const name = 'Abrar Hameem';
+
 
 
 
@@ -21,8 +24,8 @@ export default function CartReview() {
 
     let totalPrice = 0;
 
-    for ( let x in cart){
-        totalPrice += cart[x].price*cart[x].quantity;
+    for (let x in cart) {
+        totalPrice += cart[x].price * cart[x].quantity;
     };
     //console.log("total price",totalPrice);
 
@@ -87,6 +90,10 @@ export default function CartReview() {
                         <div className='name'>Grand Total</div>
                         <div className='price'>${grandTotal}</div>
                     </div>
+                    <div style={{ textAlign: 'center' }}>
+                        <Link to={`/orderconfirm/${name}`}><button style={{ textAlign: 'center' }} className='btn-placeorder'>Place Order</button></Link>
+                    </div>
+
                 </>
             )}
 

@@ -7,6 +7,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NotFound from './components/Errors/NotFound';
 import Shop from './components/Shop_/Shop';
 import CartReview from './components/Cart/CartReview';
+import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const routes = createBrowserRouter([
         path: '/manage',
         element: <h1>Manage Review</h1>
       },
+      {
+        path: '/orderconfirm/:name',
+        element: <OrderConfirmation/>
+      },
+
     ]}
 ])
 
