@@ -43,7 +43,6 @@ export default function Shop() {
                     <div style={{textAlign: 'center'}}>
                         <button className='btn-placeorder'>Review Order</button>
                     </div>
-                      
                     </Link>
                 </Cart>
             </div>
