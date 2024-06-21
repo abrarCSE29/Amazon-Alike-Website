@@ -46,9 +46,9 @@ const removeCart = () => {
 }
 
 const addUser = (user) => {
-
-    
-    const userList =localStorage.getItem("userList")? localStorage.getItem("userList") : [];
+    console.log(user);
+    const userList =localStorage.getItem("userList")? JSON.parse(localStorage.getItem("userList")) : [];
+    console.log("this is user list ",userList);
     userList.push(user);
     localStorage.setItem("userList", JSON.stringify(userList));
 }

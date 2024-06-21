@@ -35,6 +35,11 @@ export default function Signup() {
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent form submission which causes page reload
         saveUser();
+        setFormData({
+            username: '',
+            email: '',
+            password: ''
+        });
     };
 
 
@@ -92,7 +97,16 @@ export default function Signup() {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    sx={{ mt: 2 }}
+                    sx={{ 
+                        mt: 2 ,
+                        background : 'black',
+                        color : 'white',
+                        '&:hover' : {
+                            background : '#424242',
+                            color : 'white'
+                        }
+                    }}
+                    
                 >
                     Register
                 </Button>
