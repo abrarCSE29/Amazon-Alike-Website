@@ -45,4 +45,12 @@ const removeCart = () => {
     localStorage.removeItem("cart");
 }
 
-export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart};
+const addUser = (user) => {
+
+    
+    const userList =localStorage.getItem("userList")? localStorage.getItem("userList") : [];
+    userList.push(user);
+    localStorage.setItem("userList", JSON.stringify(userList));
+}
+
+export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart,addUser};

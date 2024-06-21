@@ -14,6 +14,7 @@ export default function Header() {
         <Link to="shop">Products</Link>
         <Link to="review">Review Order</Link>
         <Link to="manage">Manage Order</Link>
+        <Link to="signup">Signin</Link>
       </nav>
     </div>
   )
