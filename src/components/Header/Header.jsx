@@ -6,8 +6,12 @@ import { UserContext } from '../Context/UserContext';
 
 export default function Header() {
 
-  const { user } = useContext(UserContext);
-  console.log(user.email);
+  const { user, setUser } = useContext(UserContext);
+  //console.log(user.email);
+
+  const handleLogout = () => {
+    setUser(null); // Clear user context on logout
+  };
 
   return (
     <div className='header'>
@@ -16,8 +20,14 @@ export default function Header() {
         <Link to="shop">Products</Link>
         <Link to="review">Review Order</Link>
         <Link to="manage">Manage Order</Link>
-        <Link to="signin">Signin</Link>
-        {user && <div className="user-welcome" style={{color : 'white'}}>Welcome, {user.email}</div>}
+        {!user ? (
+          <Link to="signin">Signin</Link>
+        ) : (
+          <>
+            <span className="user-welcome" style={{color : 'white'}}>Welcome, {user.email}</span>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
+          </>
+        )}
       </nav>
     </div>
   )
