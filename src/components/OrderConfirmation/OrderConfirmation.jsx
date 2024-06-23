@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import { removeCart } from '../../Database/database';
 import { UserContext } from '../Context/UserContext';
 
