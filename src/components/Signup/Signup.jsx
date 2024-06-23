@@ -1,6 +1,7 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { addUser } from '../../Database/database';
+import { Link } from 'react-router-dom';
 
 export default function Signup() {
 
@@ -110,6 +111,13 @@ export default function Signup() {
                 >
                     Register
                 </Button>
+                <Box 
+                    sx={{
+                        margin: '5% 0 5% 0',
+                    }}
+                >
+                    <Typography ><Link to={"/signin"} style={{textDecoration : 'none', color : 'blue', fontWeight : 'bold'}}> Already have an account ? Go to signin</Link> </Typography>
+                </Box>
             </form>
         </Box>
     )
