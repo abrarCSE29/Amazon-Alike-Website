@@ -87,7 +87,6 @@ export default function Signin() {
                     variant="contained"
                     color="primary"
                     fullWidth
-                    on
                     sx={{
                         mt: 2,
                         background: 'black',

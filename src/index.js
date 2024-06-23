@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
         element: <h1>Manage Review</h1>,
       },
       {
-        path: "/orderconfirm/:name",
+        path: "/orderconfirm",
         element: <OrderConfirmation />,
       },
       {

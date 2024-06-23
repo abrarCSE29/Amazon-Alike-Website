@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./CartReview.css"
 import { getCartdb, removeFromCartdb } from '../../Database/database';
-import { Link } from 'react-router-dom';
+import { useNavigate, } from 'react-router-dom';
+import { UserContext } from '../Context/UserContext';
 export default function CartReview() {
 
     const [cart, setCart] = useState([]);
-
+    const {user} = useContext(UserContext);
     useEffect(() => {
         setCart(getCartdb);
     }, []);
@@ -15,9 +16,18 @@ export default function CartReview() {
         setCart(getCartdb);
     }
 
-    const name = 'Abrar Hameem';
 
+    const navigate = useNavigate();
 
+    const handlePlaceOrder =() => {
+        console.log(user);
+        if(user === null){
+            navigate("/signin");
+        }
+        else{
+            navigate('/orderconfirm');
+        }
+    }
 
 
     // const totalPrice = cart.reduce((total, prd) => total + prd.price*prd.quantity, 0);
@@ -91,7 +101,7 @@ export default function CartReview() {
                         <div className='price'>${grandTotal}</div>
                     </div>
                     <div style={{ textAlign: 'center' }}>
-                        <Link to={`/orderconfirm/${name}`}><button style={{ textAlign: 'center' }} className='btn-placeorder'>Place Order</button></Link>
+                        <button style={{ textAlign: 'center' }}  onClick = {handlePlaceOrder} className='btn-placeorder'>Place Order</button>
                     </div>
 
                 </>
