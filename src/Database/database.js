@@ -53,4 +53,12 @@ const addUser = (user) => {
     localStorage.setItem("userList", JSON.stringify(userList));
 }
 
-export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart,addUser};
+const validateUserLogin = (user) => {
+    const userList = localStorage.getItem("userList")? JSON.parse(localStorage.getItem("userList")) : [];
+    const isUser = userList.find(u => {
+        return u.email === user.email && u.password === user.password;
+    });
+    return isUser;
+}
+
+export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart,addUser,validateUserLogin};
