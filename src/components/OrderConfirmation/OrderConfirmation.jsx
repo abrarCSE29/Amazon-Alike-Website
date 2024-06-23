@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { removeCart } from '../../Database/database';
+import { UserContext } from '../Context/UserContext';
 
 export default function OrderConfirmation() {
-
-    const { name } = useParams();
+    const {user} = useContext(UserContext);
+    //const { name } = useParams();
+    const name = user.email;
     return (
         <div style={{ textAlign: 'center' }}>
             <h1>Dear {name} Your order has been confirmed</h1>
