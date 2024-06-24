@@ -11,9 +11,18 @@ const getProducts = () =>{
     return JSON.parse(products);
 };
 
-const getCartdb = () =>{
-    const cartdb = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")) : [];
+const getCartdb = (user) =>{
+    let cartdb = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")) : [];
     //console.log('thsi is cart db' ,cartdb);
+    //cartdb = user.cart;
+    if(user===null || user===undefined){
+        console.log("NO User");
+    }
+    else{
+        console.log(user.cart);
+    }
+
+    
     return cartdb;
 }
 

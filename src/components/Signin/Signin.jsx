@@ -28,12 +28,11 @@ export default function Signin() {
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent form submission which causes page reload
         const vali = validateUserLogin(formData);
-
         if (vali === undefined) {
             setError(true);
         } else {
             setError(false);
-            setUser(formData);
+            setUser(vali);
             navigate('/shop'); // Navigate to shop
         }
     };
