@@ -19,7 +19,7 @@ export default function Header() {
       <nav>
         <Link to="shop">Products</Link>
         <Link to="review">Review Order</Link>
-        <Link to="manage">Manage Order</Link>
+        <Link to="manage">Previous Orders</Link>
         {!user ? (
           <Link to="signin">Signin</Link>
         ) : (
