@@ -13,16 +13,12 @@ const getProducts = () =>{
 
 const getCartdb = (user) =>{
     let cartdb = localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")) : [];
-    //console.log('thsi is cart db' ,cartdb);
-    //cartdb = user.cart;
     if(user===null || user===undefined){
         console.log("NO User");
     }
     else{
-        console.log(user.cart);
+        //console.log(user.cart);
     }
-
-    
     return cartdb;
 }
 
@@ -40,7 +36,7 @@ const setCartdb = (product) =>{
     }
     
     localStorage.setItem("cart", JSON.stringify(existingCart));
-    console.log("Cart products" , existingCart);
+    //console.log("Cart products" , existingCart);
 }
 
 const removeFromCartdb = (product) =>{
@@ -70,4 +66,12 @@ const validateUserLogin = (user) => {
     return isUser;
 }
 
-export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart,addUser,validateUserLogin};
+const updateUser = (user) => {
+    const userList = localStorage.getItem("userList")? JSON.parse(localStorage.getItem("userList")) : [];
+    const index = userList.findIndex(u=>u.username === user.username);
+    userList[index] = user;
+    console.log("THis is log from update user ",userList);
+    localStorage.setItem("userList", JSON.stringify(userList));
+}
+
+export {setProducts,getProducts,getCartdb,setCartdb,removeFromCartdb,removeCart,addUser,validateUserLogin,updateUser};
