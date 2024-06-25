@@ -11,6 +11,7 @@ import OrderConfirmation from "./components/OrderConfirmation/OrderConfirmation"
 import Signup from "./components/Signup/Signup";
 import Signin from "./components/Signin/Signin";
 import { UserProvider } from "./components/Context/UserContext";
+import PreviousOrders from "./components/PreviousOrders/PreviousOrders";
 
 const routes = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/manage",
-        element: <h1>Manage Review</h1>,
+        element: <PreviousOrders/>
       },
       {
         path: "/orderconfirm",
