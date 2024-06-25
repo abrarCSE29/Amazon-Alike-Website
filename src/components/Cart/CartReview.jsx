@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./CartReview.css"
-import { getCartdb, removeFromCartdb } from '../../Database/database';
+import { getCartdb, removeCart, removeFromCartdb, updateUser } from '../../Database/database';
 import { useNavigate, } from 'react-router-dom';
 import { UserContext } from '../Context/UserContext';
 export default function CartReview() {
 
     const [cart, setCart] = useState([]);
-    const {user} = useContext(UserContext);
+    const {user, setUser} = useContext(UserContext);
     useEffect(() => {
         setCart(getCartdb);
     }, []);
+
+
 
     const handleRemoveFromCart = (product) => {
         removeFromCartdb(product);
@@ -21,11 +23,17 @@ export default function CartReview() {
 
     const handlePlaceOrder =() => {
         console.log(user);
-        if(user === null){
+        if(user === null || user===undefined){
             navigate("/signin");
         }
         else{
+            user.orders.push(cart);
+            console.log("This is user order", user);
+            setUser(user);
+            updateUser(user);
+            removeCart();
             navigate('/orderconfirm');
+
         }
     }
 

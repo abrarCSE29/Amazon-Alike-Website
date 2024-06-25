@@ -1,20 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { getCartdb, getProducts, setCartdb } from '../../Database/database';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../Context/UserContext';
 export default function Shop() {
 
     const first10 = getProducts();
     const [products] = useState(first10);
+    const {user} = useContext(UserContext);
     // const DBcart = getCartdb();
     // console.log(DBcart);
-    const [cart, setCart] = useState(getCartdb);
+    const [cart, setCart] = useState(getCartdb(user));
 
+    
 
     const handleAddProduct = (pd) => {
-        setCartdb(pd);
+        setCartdb(pd,user);
         setCart(getCartdb);
     };
 

@@ -24,7 +24,7 @@ export default function Header() {
           <Link to="signin">Signin</Link>
         ) : (
           <>
-            <span className="user-welcome" style={{color : 'white'}}>Welcome, {user.email}</span>
+            <span className="user-welcome" style={{color : 'white'}}>Welcome, {user.username}</span>
             <button onClick={handleLogout} className="logout-button">Logout</button>
           </>
         )}

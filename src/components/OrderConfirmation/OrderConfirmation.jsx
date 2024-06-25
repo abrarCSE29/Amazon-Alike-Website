@@ -6,10 +6,9 @@ import { UserContext } from '../Context/UserContext';
 export default function OrderConfirmation() {
     const {user} = useContext(UserContext);
     //const { name } = useParams();
-    const name = user.email;
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Dear {name} Your order has been confirmed</h1>
+            <h1>Dear {user.username},  Your order has been confirmed</h1>
             <Link to={`/shop`}>
                 <button
                     style={{
